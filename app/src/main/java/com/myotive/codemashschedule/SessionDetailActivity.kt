@@ -2,8 +2,11 @@ package com.myotive.codemashschedule
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import com.myotive.codemashschedule.api.entity.SessionData
+import com.myotive.codemashschedule.recyclerview.SpeakerImageAdapter
 import com.myotive.codemashschedule.utilities.toShortDate
 import com.myotive.codemashschedule.utilities.toTime
 import kotlinx.android.synthetic.main.activity_speaker_detail.*
@@ -26,6 +29,7 @@ class SessionDetailActivity : AppCompatActivity() {
 
 		if(session != null) {
 			loadSession(session)
+			loadSpeakerImages(session)
 		}
     }
 
@@ -44,6 +48,14 @@ class SessionDetailActivity : AppCompatActivity() {
 		}
 	}
 
+	private fun loadSpeakerImages(session: SessionData) {
+		val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+		val dividerItemDecoration = DividerItemDecoration(this,  layoutManager.orientation)
+
+		rv_speaker_images.layoutManager = layoutManager
+		rv_speaker_images.addItemDecoration(dividerItemDecoration)
+		rv_speaker_images.adapter = SpeakerImageAdapter(session.speakers)
+	}
 
 	override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // handle arrow click here
