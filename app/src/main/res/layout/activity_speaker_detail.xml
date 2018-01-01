@@ -3,6 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	tools:context="com.myotive.codemashschedule.SessionDetailActivity">
 
 	<RelativeLayout
@@ -10,11 +11,74 @@
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
 
+		<ImageView
+			android:id="@+id/iv_speaker_image"
+			android:layout_width="200dp"
+			android:layout_height="200dp"
+			app:srcCompat="@drawable/ic_codemash"/>
+
+
 		<TextView
+			android:id="@+id/session_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/iv_speaker_image"
+			android:layout_marginTop="12dp"
+			android:paddingLeft="20dp"
+			android:paddingRight="20dp"
+			android:textStyle="bold"
+			tools:text="Test test test test" />
+
+		<TextView
+			android:id="@+id/speakers"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_centerInParent="true"
-			android:text="We did it!" />
+			android:layout_below="@+id/session_title"
+			android:layout_marginTop="20dp"
+			android:drawableLeft="@drawable/ic_person"
+			android:drawablePadding="10dp"
+			android:gravity="center_vertical"
+			android:paddingLeft="20dp"
+			android:paddingRight="20dp"
+			android:textStyle="bold"
+			tools:text="Speaker 1, Speaker 2, Speaker 3" />
+
+
+		<TextView
+			android:id="@+id/session_time"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/speakers"
+			android:drawableLeft="@drawable/ic_date"
+			android:drawablePadding="10dp"
+			android:gravity="center_vertical"
+			android:paddingLeft="20dp"
+			tools:text="Test test test test" />
+
+		<TextView
+			android:id="@+id/session_location"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/session_time"
+			android:drawableLeft="@drawable/ic_place"
+			android:drawablePadding="10dp"
+			android:gravity="center_vertical"
+			android:paddingLeft="20dp"
+			tools:text="Test test test test" />
+
+
+		<TextView
+			android:id="@+id/session_abstract"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/session_location"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="10dp"
+			android:paddingLeft="20dp"
+			android:paddingRight="20dp"
+			tools:text="Test test test test\nTest test test test\nTest test test test\nTest test test test\nTest test test test\nTest test test test\n" />
 
 
 	</RelativeLayout>
